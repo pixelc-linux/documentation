@@ -1,0 +1,9 @@
+[submodule "pixelc-kernel-scripts"]
+	path = pixelc-kernel-scripts
+	url = https://github.com/pixelc-linux/pixelc-kernel-scripts.git
+[submodule "pixelc-mkinitramfs.sh"]
+	path = pixelc-mkinitramfs.sh
+	url = https://github.com/pixelc-linux/pixelc-mkinitramfs.sh.git
+[submodule "pixelc-freebsd-scripts"]
+	path = pixelc-freebsd-scripts
+	url = https://github.com/pixelc-linux/pixelc-freebsd-scripts.git
