@@ -33,11 +33,11 @@ As of currently, the following distributions are confirmed working:
 
 ### Arch Linux Arm
 
-Maintained by @denvit.
+Maintained by [@denvit](https://github.com/denysvitali).
 
 ### Void Linux aarch64 (glibc or musl)
 
-Maintained by @q66.
+Maintained by [@q66](https://github.com/q66).
 
 ## Hardware support status
 
@@ -94,8 +94,9 @@ things missing.
 - The Pixel C keyboard - while you can use this without one, it's much more
   comfortable to have the official keyboard
 - USB-C hub, [this](https://www.amazon.com/dp/B01K7C53K2) one is confirmed
-  working by @denvit and @q66, minus the HDMI (might never work, HW support
-  is most likely not present)
+  working by [@denvit](https://github.com/denysvitali) and
+  [@q66](https://github.com/q66), minus the HDMI (might
+  never work, HW support is most likely not present)
 - USB-C to USB-A adapter, e.g. [this](https://www.amazon.com/dp/B078NKPGW9/)
   or the official one by Google
 - USB Ethernet adapter (if you wish to use wired network)
