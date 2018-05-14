@@ -206,7 +206,7 @@ Alternatively, download a prebuilt initramfs.
 This is the Pixel C user partition table:
 
 | Device     | Label    | Size      | Mount Point | Description      | Can be installed here? |
-|------------|----------|-----------|-------------|------------------|:----------------------:|
+|------------|----------|----------:|-------------|------------------|:----------------------:|
 | mmcblk0p1  | KERN-A   | 33.55 MB  |             | Kernel part A    |                        |
 | mmcblk0p2  | KERN-B   | 33.55 MB  |             | Kernel part B    |                        |
 | mmcblk0p3  | recovery | 33.55 MB  |             | Recovery         |                        |
