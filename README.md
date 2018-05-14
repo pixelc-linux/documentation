@@ -329,7 +329,8 @@ Currently active contributors are:
 
 Inactive:
 
-- [Matthieu Tournier aka Samt43] - original founder of the project
+- [Matthieu Tournier aka Samt43](https://github.com/Samt43) - original
+  founder of the project
 
 Contributions in all areas are welcome, even if you don't own a Pixel C -
 any relevant information or code is welcome.
