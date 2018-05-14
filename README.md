@@ -175,7 +175,7 @@ the steps described below. The general procedure is as follows:
   you can boot as soon as you have a u-boot kernel image and a ramdisk, but
   not so that it remains on the device
 
-#### Host operating systmes
+#### Host operating systems
 
 While most users are expected to be running Linux on their host computer,
 we also support FreeBSD.
