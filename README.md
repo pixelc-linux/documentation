@@ -205,24 +205,27 @@ Alternatively, download a prebuilt initramfs.
 
 This is the Pixel C user partition table:
 
-- `mmcblk0p1` - `KERN-A`, kernel part A, reserved
-- `mmcblk0p2` - `KERN-B`, kernel part B, reserved
-- `mmcblk0p3` - recovery, reserved
-- `mmcblk0p4` - Android `/system`, **can be installed here**, ~3.7GB
-- `mmcblk0p5` - Android `/vendor`, too small for installation (~300MB)
-- `mmcblk0p6` - Android `/cache`, too small for installation (~150MB)
-- `mmcblk0p7` - Android `/data`, **preferred location**, ~58GB
-- `mmcblk0p8` - `MD1`, ~70MB
-- `mmcblk0p9` - `LNX`, ~30MB
-- `mmcblk0p10` - `MSC`, ~4MB
-- `mmcblk0p11` - `PST`, ~0.5MB
+| Device     | Label    | Size      | Mount Point | Description      | Can be installed here? |
+|------------|----------|-----------|-------------|------------------|:----------------------:|
+| mmcblk0p1  | KERN-A   | 33.55 MB  |             | Kernel part A    |                        |
+| mmcblk0p2  | KERN-B   | 33.55 MB  |             | Kernel part B    |                        |
+| mmcblk0p3  | recovery | 33.55 MB  |             | Recovery         |                        |
+| mmcblk0p4  | APP      | 3.76 GB   | `/system`   | System Partition | ✔️                     |
+| mmcblk0p5  | VNR      | 318.76 MB | `/vendor`   | Vendor Partition |                        |
+| mmcblk0p6  | CAC      | 150.99 MB | `/cache`    | Cache Partition  |                        |
+| mmcblk0p7  | UDA      | 57.82 GB  | `/data`     | Data Partition   | ✔️                     |
+| mmcblk0p8  | MD1      | 67.11 MB  |             | Metadata         |                        |
+| mmcblk0p9  | LNX      | 33.55 MB  |             | Linux ?          |                        |
+| mmcblk0p10 | MSC      | 4.19 MB   |             | Misc             |                        |
+| mmcblk0p11 | PST      | 0.52 MB   |             | Persistent       |                        |
+
 
 There is also `mmcblk0boot0` and `mmcblk0boot1` where the bootloader resides.
 You cannot alter those.
 
 Generally, three locations can be chosen for your root filesystem:
 
-- `mmcblk0p4` aka `/system` - this replaces Android entirely. 3.7GB is a bit
+- `mmcblk0p4` aka `/system` - this replaces Android entirely. 3.76GB is a bit
   on the small side for a desktop Linux system.
 - `mmcblk0p7` aka `/data` - leaves Android in `/system`. Keep in mind that
   Android tries to encrypt `/data`, which results in the root filesystem not
