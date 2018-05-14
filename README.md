@@ -106,7 +106,19 @@ things missing.
 
 ### Preparations
 
-All the necessary repositories are linked into this repository as submodules.
+All the necessary tooling repositories are linked into this repository as
+submodules.
+
+Additionally, you will likely probably want these:
+
+- [Our kernel tree](https://github.com/pixelc-linux/linux)
+- [mkbootimg](https://github.com/pixelc-linux/mkbootimg)
+- [futility](https://github.com/pixelc-linux/futility)
+
+The latter two are used to create `fastboot` compatible boot images and
+sign them. They can frequently be installed from Linux distribution repos,
+but if your distro doesn't have those, you can use ours; ours are also
+patched to work on FreeBSD.
 
 A Linux installation for your Pixel C consists of the following steps:
 
