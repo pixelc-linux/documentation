@@ -7,3 +7,6 @@
 [submodule "pixelc-freebsd-scripts"]
 	path = pixelc-freebsd-scripts
 	url = https://github.com/pixelc-linux/pixelc-freebsd-scripts.git
+[submodule "pixelc-get_firmware.sh"]
+	path = pixelc-get_firmware.sh
+	url = https://github.com/pixelc-linux/pixelc-get_firmware.sh.git
