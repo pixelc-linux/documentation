@@ -312,6 +312,46 @@ You have multiple choices here. With the device in `fastboot` mode:
 If you've done everything, your chosen distribution should show up on the
 device and you can proceed with post-installation setup.
 
+## Configuration
+
+### Bluetooth
+
+#### Keyboard
+
+Assuming `E8:88:57:D5:E8:96` is the bluetooth address of your keyboard:
+
+1.  Start the `bluetoothctl` CLI
+2.  Power on the adapter: `power on`
+3.  Set the default agent: `default-agent`
+4.  Enable scan mode: `scan on`
+5.  When `[NEW] Device E8:88:57:D5:E8:96 Pixel C Keyboard` you're ready to
+    connect to your Pixel C Keyboard
+6.  You can connect to the keyboard: `pair E8:88:57:D5:E8:96`
+7.  You'll see a code on your screen (e:g: `[agent] Passkey: 032578`):
+    put this code on your keyboard and press ENTER.
+8.  If you did everything as instructed you should be able to see 
+    `Pairing successful` on your screen, meaning that the keyboard can now be used with your tablet.
+
+##### Keyboard Layout
+[Arch Linux Wiki Reference](https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg)  
+
+To edit the keyboard layout you'll need to use your DM settings, or add a file in `/etc/X11/xorg.conf.d/00-keyboard.conf` with the following content:  
+```
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "cz,us"
+        Option "XkbModel" "pc104"
+        Option "XkbVariant" ",dvorak"
+        Option "XkbOptions" "grp:alt_shift_toggle"
+EndSection
+```
+
+where `XkbLayout` is your keyboard layout,
+`XKbModel` ist the keyboard model and `XkbVariant` is the keyboard variant.  
+  
+More information is available [here](https://www.x.org/releases/X11R7.6/doc/xorg-docs/input/XKB-Config.html).
+
 ## Further reading
 
 You can check out the Wiki of this repository, which will gradually be
