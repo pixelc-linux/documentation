@@ -223,21 +223,42 @@ This is the Pixel C user partition table:
 There is also `mmcblk0boot0` and `mmcblk0boot1` where the bootloader resides.
 You cannot alter those.
 
-Generally, three locations can be chosen for your root filesystem:
+Generally, two locations can be chosen for your root filesystem:
 
-- `mmcblk0p4` aka `/system` - this replaces Android entirely. 3.76GB is a bit
-  on the small side for a desktop Linux system.
-- `mmcblk0p7` aka `/data` - leaves Android in `/system`. Keep in mind that
-  Android tries to encrypt `/data`, which results in the root filesystem not
-  being mountable by the Linux kernel afterwards, and this is yet unsolved.
+- `mmcblk0p4` aka `/system` - this replaces Android system partition while
+  not doing anything to `/data`. You can utilize `/data` for example for
+  your home directory afterwards, but keep in mind that `/system` only has
+  less than 4 gigabytes in size, so it's not too much space for an entire
+  desktop operating system, which may limit how much you can install.
+- `mmcblk0p7` aka `/data` - replaces your user data partition while not
+  using `/system`. This gives you significantly more space and you can
+  repurpose `/system` for something else if you want.
+
+Android by default encrypts `/data`, so you will need to unencrypt the
+partition from TWRP if you wish to make use of it. There is currently
+no support for mounting Android-encrypted `/data` from either ramdisk
+or the running system. Keep in mind that removing encryption from it
+will wipe all your user data.
+
+If you boot back into Android with unencrypted `/data`, it will attempt
+to reencrypt the partition by default. It has been suggested that by
+modifying Android's `/etc/fstab`, you can disable that.
+
+There is a third way that will be supported in the future:
+
 - a loop image on `mmcblk0p7` - lets you keep your Android user data as well,
   by storing the rootfs in an image file (can be sparse to save space) with
-  a filesystem in it; needs a custom initramfs which will first mount `/data`
-  and then the filesystem in the image. Has the same encryption issue as above.
+  a filesystem in it.
 
-The recommended way is to replace Android entirely and put your filesystem on
-`/data`; this gives you the most space. However, it leaves `/system` unused
-unless you can find a use for it (swap, separate storage space...)
+Any "dual-booting" approach will need a custom initramfs which is currently
+not supported. One obstacle is getting the system to boot at all that way;
+another is getting it to work with Android without using `fastboot` to
+boot every time.
+
+The recommended way to install is to wipe your Android setup and use `/data`
+for your root file system; then you can repurpose `/system` for something
+else, such as swap space or additional storage. It is not recommended to
+try to mess with the partition table to merge the partitions.
 
 #### Device preparation
 
