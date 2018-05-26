@@ -10,3 +10,6 @@
 [submodule "pixelc-get_firmware.sh"]
 	path = pixelc-get_firmware.sh
 	url = https://github.com/pixelc-linux/pixelc-get_firmware.sh.git
+[submodule "pixelc-rootfs-scripts"]
+	path = pixelc-rootfs-scripts
+	url = https://github.com/pixelc-linux/pixelc-rootfs-scripts.git

@@ -16,7 +16,7 @@ The specifications of the Pixel C are as follows:
 
 - Nvidia Tegra X1 Aarch64 SoC
 - 3GB RAM
-- 1:1.4 2560x1800 IPS LCD capacitive touchscreen
+- 10.2" 1:1.4 2560x1800 IPS LCD capacitive touchscreen
 - 8MP primary camera, 2MP secondary camera
 - Broadcom BCM4354 802.11ac Wi-Fi + Bluetooth 4.0
 - USB Type C
@@ -41,7 +41,7 @@ Maintained by [@q66](https://github.com/q66).
 
 ## Hardware support status
 
-**CURRENT RC: 4.17-rc5**
+**CURRENT RC: 4.17-rc6**
 
 We have kernel branches for the latest release candidate as well as the
 `linux-next` repository, all supplied with custom patches for the device
