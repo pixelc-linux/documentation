@@ -55,7 +55,7 @@ things missing.
 
 - Boot
 - Display and backlight
-- 3D acceleration - partial (needs firmware and Mesa 18.1 or better)
+- 3D acceleration - partial (needs firmware and patched Mesa 18.1 or better)
 - Wi-Fi and Bluetooth (needs firmware)
 - USB 3.0/2.0/partial 1.x, host mode only
 - eMMC storage - partial
@@ -80,6 +80,29 @@ things missing.
 - Cameras, sensors (accelerometer/gyro/...)
 - Possibly other things - TBD
 
+### Software patches
+
+Everything currently runs more or less on upstream, with the exceptions below.
+
+#### Mesa
+
+As of right now, a patch for Mesa is needed to get X11 to start up and render
+correctly. Without patching, Xorg 1.19.x and older will start, but won't draw
+properly, Xorg 1.20 and later will just not start at all.
+
+You will need at least Mesa 18.1, alternatively you can use Git `master` or
+any branch based at least on 18.1.
+
+All you need to do is apply the contents of the `patches/mesa` directory using
+the usual means and build Mesa. You will need at very least the following
+options for Mesa configuration:
+
+```
+--with-gallium-drivers=tegra,nouveau
+```
+
+The rest is up to you or up to your distribution packaging.
+
 ## Installation
 
 ### Prerequisites
@@ -87,6 +110,7 @@ things missing.
 - Pixel C (duh)
 - Unlocked bootloader and TWRP recovery installed
 - A host computer with either any Linux distro or FreeBSD
+- If you want to build a rootfs from scratch, a Linux installation (any)
 - `adb` and `fastboot` installed
 
 ### Good to have
@@ -130,33 +154,41 @@ A Linux installation for your Pixel C consists of the following steps:
 
 ### Root FS preparation
 
-On some host computer, you will need to prepare your root filesystem. That is
-basically an archive containing the contents of your `/` filesystem. While you
-can use any distro provided root filesystem for 64-bit ARM, these will likely
-be missing things like Bluetooth and Wi-Fi utilities, so you might have a bit
-of a hard time setting it up and if your distro does not supply X11 out of
-box, you will also need to connect a USB keyboard because onscreen keyboard
-won't be available.
+You can download prebuilt root filesystem tarballs from us. Alternatively,
+you can make your own rootfs tarball; we provide the `pixelc-rootfs-scripts`
+to make it easier and it can be run on either `x86`/`x86_64`/etc hardware or
+native `aarch64` hardware. In the former case, the scripts will automatically
+set up emulation.
 
-So your first step should be a preparation of a root filesystem containing at
-least the following:
+We support a specific set of distributions in those scripts. It is always
+possible to write support for new distros, so if you want to contribute
+any, it would be much appreciated. The instructions on how to do so can be
+found in the actual repository.
+
+Of course, it is possible to use any rootfs for 64-bit ARM. However, these
+will probably not have the appropriate software stack you will need and they
+will also lack stuff like patched up to date Mesa for proper X11 function and
+3D acceleration, and you might have to connect a USB keyboard.
+
+A root filesystem for the Pixel C should bave at least the following:
 
 - `wpa_supplicant` for Wi-Fi, or ideally something like `NetworkManager` or
   maybe `connman`
 - `linux-firmware`, for `brcm4354` and Nvidia firmware for `gm20b`; while
   these are provided by our initial ramdisks, it's good to have them in the
-  actual userland as well, most distros provide them as a part of a package.
+  actual userland as well, most distros provide them as a part of a package;
+  you should also have the additional firmware files obtainable using the
+  `pixels-get_firmware.sh` repository, as these are not present in the
+  `linux-firmware` tree
 - `bluez` for bluetooth setup
-- X11, a window manager or a desktop environment, input drivers and also the
-  `modesetting` DDX for graphics
+- a build of Mesa with the patches provided in this repo applied, see the
+  hardware support section; unpatched Mesa will still work, but only an
+  older version and you won't get any 3D acceleration; unpatched 18.1+
+  will result in X11 not starting
+- X11 or Wayland, a window manager or a desktop environment or a Wayland
+  compositor, input drivers and so on
 
-Everything else is up to you. You might also want `mesa` (`libGL` etc.), at
-least **version 18.1**, if you want 3D acceleration to work. Otherwise the
-device will be usable thanks to the `nouveau` DRM driver but will use
-`llvmpipe` or `softpipe` for OpenGL, with no acceleration.
-
-Alternatively, you can grab a prebuilt root filesystem from us, if we have
-one for your distro.
+Everything else is up to you.
 
 ### Kernel image preparation
 
