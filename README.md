@@ -274,7 +274,7 @@ will wipe all your user data.
 
 If you boot back into Android with unencrypted `/data`, it will attempt
 to reencrypt the partition by default. It has been suggested that by
-modifying Android's `/etc/fstab`, you can disable that.
+modifying Android's `fstab`, you can disable that.
 
 There is a third way that will be supported in the future:
 
