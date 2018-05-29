@@ -41,7 +41,7 @@ Maintained by [@q66](https://github.com/q66).
 
 ## Hardware support status
 
-**CURRENT RC: 4.17-rc6**
+**CURRENT RC: 4.17-rc7**
 
 We have kernel branches for the latest release candidate as well as the
 `linux-next` repository, all supplied with custom patches for the device
