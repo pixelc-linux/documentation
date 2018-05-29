@@ -86,12 +86,12 @@ Everything currently runs more or less on upstream, with the exceptions below.
 
 #### Mesa
 
+**Only for version 18.1.0, patch is in git master now and will be
+present in 18.1.1 bugfix release.**
+
 As of right now, a patch for Mesa is needed to get X11 to start up and render
 correctly. Without patching, Xorg 1.19.x and older will start, but won't draw
 properly, Xorg 1.20 and later will just not start at all.
-
-You will need at least Mesa 18.1, alternatively you can use Git `master` or
-any branch based at least on 18.1.
 
 All you need to do is apply the contents of the `patches/mesa` directory using
 the usual means and build Mesa. You will need at very least the following
