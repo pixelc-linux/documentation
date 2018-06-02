@@ -80,28 +80,26 @@ things missing.
 - Cameras, sensors (accelerometer/gyro/...)
 - Possibly other things - TBD
 
-### Software patches
+### Software notes
 
-Everything currently runs more or less on upstream, with the exceptions below.
+If you're porting a distribution or setting up a rootfs, there are some things
+to keep in mind.
 
 #### Mesa
 
-**Only for version 18.1.0, patch is in git master now and will be
-present in 18.1.1 bugfix release.**
+You need Mesa 18.1.1 at minimum. 18.1.0 lacks certain patches needed for proper
+function under a recent kernel and Xorg; they were introduced later and are
+currently present in git as well as in the latest release.
 
-As of right now, a patch for Mesa is needed to get X11 to start up and render
-correctly. Without patching, Xorg 1.19.x and older will start, but won't draw
-properly, Xorg 1.20 and later will just not start at all.
-
-All you need to do is apply the contents of the `patches/mesa` directory using
-the usual means and build Mesa. You will need at very least the following
-options for Mesa configuration:
+When building, you need at least the following options for `configure`:
 
 ```
 --with-gallium-drivers=tegra,nouveau
 ```
 
-The rest is up to you or up to your distribution packaging.
+The `tegra` driver is for scanout and `nouveau` is for the GPU, both need to
+be enabled. It's also good to build a software rasterizer (`swrast`) as a
+fallback.
 
 ## Installation
 
