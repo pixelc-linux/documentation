@@ -41,7 +41,7 @@ Maintained by [@q66](https://github.com/q66).
 
 ## Hardware support status
 
-**CURRENT RELEASE: 4.17**
+**CURRENT RELEASE: 4.18-rc4**
 
 We have kernel branches for the latest release candidate (or stable when
 no RC is currently released) as well as the `linux-next` repository, all
