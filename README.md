@@ -37,6 +37,9 @@ Maintained by [@denvit](https://github.com/denysvitali).
 
 ### Void Linux aarch64 (glibc or musl)
 
+**Current status:** in progress
+**Latest update:** Mesa 18.1.x merge pending
+
 Maintained by [@q66](https://github.com/q66).
 
 ## Hardware support status
