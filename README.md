@@ -37,8 +37,7 @@ Maintained by [@denvit](https://github.com/denysvitali).
 
 ### Void Linux aarch64 (glibc or musl)
 
-**Current status:** in progress  
-**Latest update:** Mesa 18.1.x merged, pending scripts
+**Current status:** Maintainer inactive
 
 Maintained by [@q66](https://github.com/q66).
 
@@ -419,15 +418,15 @@ Currently active contributors are:
 
 - [Denys Vitali aka denvit](https://github.com/denysvitali) - rootfs scripts,
   CI, Arch porting, documentation, Telegram group
-- [Daniel Kolesa aka q66](https://github.com/q66) - kernel and initramfs
-  scripts, documentation, FreeBSD suppport, kernel maintenance and backports,
-  general infrastructure, IRC channel
 - [Dmitry Vartom aka vartom](https://github.com/vartom) - kernel patches
 
 Inactive:
 
 - [Matthieu Tournier aka Samt43](https://github.com/Samt43) - original
   founder of the project
+- [Daniel Kolesa aka q66](https://github.com/q66) - kernel and initramfs
+  scripts, documentation, FreeBSD suppport, kernel maintenance and backports,
+  general infrastructure, IRC channel
 
 Contributions in all areas are welcome, even if you don't own a Pixel C -
 any relevant information or code is welcome.
