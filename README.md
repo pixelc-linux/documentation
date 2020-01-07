@@ -170,7 +170,7 @@ will probably not have the appropriate software stack you will need and they
 will also lack stuff like patched up to date Mesa for proper X11 function and
 3D acceleration, and you might have to connect a USB keyboard.
 
-A root filesystem for the Pixel C should bave at least the following:
+A root filesystem for the Pixel C should have at least the following:
 
 - `wpa_supplicant` for Wi-Fi, or ideally something like `NetworkManager` or
   maybe `connman`
